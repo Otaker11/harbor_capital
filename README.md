@@ -17,15 +17,12 @@ Dos implementaciones del sitio institucional de Harbor Capital Partners, desarro
 
 ---
 
-## Vista previa
+##PageSpeed Insights Calificaciones de ambas versiones
 
-<!-- Desktop -->
-
-![Desktop](./docs/preview-desktop.png)
-
-<!-- Mobile -->
-
-![Mobile](./docs/preview-mobile.png)
+<!-- Astro -->
+<img width="1600" height="808" alt="astro calificacion" src="https://github.com/user-attachments/assets/704bb0db-2d02-499c-ba78-9a358a5c44e9" />
+<!-- Vanilla -->
+<img width="1455" height="771" alt="Captura de pantalla 2026-04-27 120003" src="https://github.com/user-attachments/assets/1e4d2f0a-859e-44fc-aa3d-30451ff276c5" />
 
 ---
 

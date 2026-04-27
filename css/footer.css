@@ -1,7 +1,3 @@
-/* ============================================================
-   FOOTER
-   ============================================================ */
-
 #contact {
   border-top: 1px solid var(--color-border);
 }
@@ -21,14 +17,17 @@
 
 .footer-desktop__grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* en Astro es 4 columnas iguales, no 1.5fr */
   gap: 2.5rem;
   margin-bottom: 3rem;
 }
 
 @media (min-width: 1024px) {
   .footer-desktop__grid {
-    gap: 4rem;
+    gap: 4rem; /* equivale a gap-10 en lg */
   }
 }
 
@@ -38,23 +37,27 @@
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.8125rem;
-  letter-spacing: var(--tracking-widest);
+  letter-spacing: 0.14em; /* tracking-[0.14em] exacto del Astro */
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 1rem;
+  text-decoration: none;
 }
 
 .footer-brand__desc {
+  font-family: var(--font-body);
   font-size: 0.8125rem;
-  max-width: 18rem;
+  font-weight: 600; /* font-semibold en Astro */
+  color: var(--color-primary);
+  line-height: 1.6;
 }
 
 /* Link columns */
 .footer-col__heading {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.625rem;
-  letter-spacing: var(--tracking-widest);
+  font-family: var(--font-display); /* font-display en Astro, no font-body */
+  font-weight: 700; /* font-bold en Astro */
+  font-size: 0.8125rem; /* text-[13px] en md */
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 1.25rem;
@@ -66,16 +69,38 @@
   gap: 0.75rem;
 }
 
+/* En Astro los links del footer son color-primary + semibold, no slate-dark */
 .footer-col__list li,
 .footer-col__list a {
   font-family: var(--font-body);
   font-size: 0.8125rem;
-  color: var(--color-slate-dark);
+  font-weight: 600; /* font-semibold — diferencia clave */
+  color: var(--color-primary); /* text-primary, no slate-dark */
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-col__list a:hover {
   color: var(--color-tertiary);
+}
+
+/* Botón Investor Portal — en Astro es bg-navy con hover gold, no btn genérico */
+.btn-navy {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.6875rem; /* text-[11px] */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: var(--color-navy);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-navy:hover {
+  background-color: var(--color-gold);
 }
 
 /* Bottom bar */
@@ -89,10 +114,12 @@
   flex-wrap: wrap;
 }
 
+/* En Astro el copy y links son color-primary + semibold, no secondary */
 .footer-bottom__copy {
   font-family: var(--font-body);
   font-size: 0.75rem;
-  color: var(--color-secondary);
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .footer-bottom__links {
@@ -104,7 +131,9 @@
 .footer-bottom__links a {
   font-family: var(--font-body);
   font-size: 0.75rem;
-  color: var(--color-secondary);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
@@ -127,20 +156,28 @@
   }
 }
 
+/* Logo mobile — font-display en Astro, tracking diferente */
 .footer-mobile .footer-brand__logo {
+  font-family: var(--font-display);
   font-size: 0.875rem;
+  letter-spacing: 0.12em;
 }
 
 .footer-mobile__links {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-mobile__links a {
   font-family: var(--font-body);
   font-size: 0.875rem;
-  color: var(--color-slate-dark);
+  font-weight: 600;
+  color: var(--color-primary); /* text-primary en Astro, no slate-dark */
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
@@ -151,4 +188,6 @@
 .footer-mobile .footer-bottom__copy {
   border-top: 1px solid var(--color-border);
   padding-top: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
 }

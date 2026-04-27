@@ -4,19 +4,19 @@
 
 /* ── Section padding ── */
 #portfolio {
-  padding: 5rem 5vw;
+  padding: 5rem 0vw;
   background-color: var(--color-neutral);
 }
 
 @media (min-width: 768px) {
   #portfolio {
-    padding: 6rem 5vw;
+    padding: 6rem 0vw;
   }
 }
 
 @media (min-width: 1024px) {
   #portfolio {
-    padding: 7rem 5vw;
+    padding: 7rem 0vw;
   }
 }
 

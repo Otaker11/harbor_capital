@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroSwiper = new Swiper(".hero-swiper", {
     loop: true,
     speed: 1200,
-    watchSlidesProgress: true, // 👈 clave para parallax manual
+    watchSlidesProgress: true,
 
     autoplay: {
       delay: AUTOPLAY_DELAY,

@@ -1,10 +1,6 @@
-/* ============================================================
-   COUNTERS
-   ============================================================ */
-
 #counter-section {
   background-color: #ffffff;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid #e2e8f0;
   padding: 3.5rem 5vw;
   overflow-x: hidden;
 }
@@ -23,7 +19,6 @@
   }
 }
 
-/* Grid */
 .counters {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -49,7 +44,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  border-left: 2px solid #e2e8f0;
+  border-left: 2px solid #b59a5d;
   padding-left: 1rem;
   opacity: 0;
 }
@@ -68,7 +63,6 @@
   }
 }
 
-/* Label — navy oscuro, igual que la imagen */
 .counter-item__label {
   font-family: var(--font-body);
   font-weight: 600;

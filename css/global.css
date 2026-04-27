@@ -1,11 +1,9 @@
 :root {
-  /* ── Colores Astro-exactos ── */
   --color-primary: #0f172a;
   --color-secondary: #94a3b8;
   --color-tertiary: #b59a5d;
   --color-neutral: #f8fafc;
 
-  /* aliases para compatibilidad con el resto del sitio */
   --color-navy: #0f172a;
   --color-navy-dark: #071429;
   --color-navy-mid: #1e2d45;
@@ -17,18 +15,15 @@
   --color-text-muted: #64748b;
   --color-border: rgba(181, 154, 93, 0.25);
 
-  /* ── Tipografía ── */
   --font-display: "Noto Serif", Georgia, "Times New Roman", serif;
   --font-body: "Public Sans", system-ui, -apple-system, sans-serif;
-  /* aliases */
+
   --font-serif: "Noto Serif", Georgia, serif;
   --font-sans: "Public Sans", system-ui, sans-serif;
 
-  /* ── Tracking ── */
   --tracking-wide: 0.08em;
   --tracking-widest: 0.15em;
 
-  /* ── Layout ── */
   --px: 5vw;
   --container-max: 1280px;
   --container-pad: clamp(1.25rem, 5vw, 4rem);
@@ -39,7 +34,6 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ── Reset ── */
 *,
 *::before,
 *::after {
@@ -94,7 +88,6 @@ button {
   padding-inline: var(--px);
 }
 
-/* ── Sección ── */
 .section-pad {
   padding-block: var(--section-pad);
 }
@@ -108,10 +101,9 @@ button {
   background-color: var(--color-navy);
 }
 
-/* ── Tipografía ── */
 .section-heading {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.75rem);
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-primary);
@@ -124,7 +116,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-ptimary);
 }
 
 .body-text {
@@ -163,7 +155,8 @@ button {
 
 .btn-ghost-navy {
   display: inline-block;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 4rem;
+  margin: auto;
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
   font-family: var(--font-body);
@@ -196,15 +189,13 @@ button {
   background: var(--color-navy-dark);
 }
 
-/* ── Flecha icono ── */
 .icon-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2.25rem;
   height: 2.25rem;
-  border: 1px solid var(--color-border);
-  color: var(--color-gold);
+  color: var(--color-primary);
   flex-shrink: 0;
   transition:
     background 0.2s,
@@ -224,7 +215,6 @@ button {
   color: var(--color-white);
 }
 
-/* ── Accesibilidad ── */
 :focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 3px;

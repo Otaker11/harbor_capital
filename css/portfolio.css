@@ -1,8 +1,3 @@
-/* ============================================================
-   PORTFOLIO
-   ============================================================ */
-
-/* ── Section padding ── */
 #portfolio {
   padding: 5rem 0vw;
   background-color: var(--color-neutral);
@@ -20,7 +15,6 @@
   }
 }
 
-/* ── Header ── */
 .portfolio__header {
   margin-bottom: 3rem;
 }
@@ -33,7 +27,7 @@
 
 .portfolio__header .label-gold {
   font-family: var(--font-body);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -48,7 +42,6 @@
   }
 }
 
-/* ── Desktop / tablet grid ── */
 .portfolio-grid {
   display: none;
 }
@@ -61,14 +54,12 @@
   }
 }
 
-/* Row 1: large + small */
 .portfolio-grid__row1 {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 1rem;
 }
 
-/* Shared card styles */
 .portfolio-card {
   background-color: #ffffff;
   overflow: hidden;
@@ -90,7 +81,6 @@
   transform: scale(1.05);
 }
 
-/* Large card */
 .portfolio-card--large .portfolio-card__img-wrap {
   height: 14rem;
 }
@@ -101,7 +91,6 @@
   }
 }
 
-/* Small card */
 .portfolio-card--small .portfolio-card__img-wrap {
   height: 14rem;
 }
@@ -112,10 +101,9 @@
   }
 }
 
-/* Info bar */
 .portfolio-card__info {
   padding: 1.25rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid #e2e8f0;
   border-top: none;
 }
 
@@ -162,21 +150,20 @@
   color: var(--color-primary);
   white-space: nowrap;
   font-weight: 600;
-  margin-top: 1.25rem; /* mt-5 */
+  margin-top: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .portfolio-card__badge {
-    font-size: 0.9375rem; /* ~15px */
+    font-size: 0.9375rem;
   }
 }
 
-/* ── Featured card: image left (4/7) + content right (3/7) ── */
 .portfolio-card--featured {
   display: grid;
-  grid-template-columns: 4fr 3fr; /* 4/7 imagen, 3/7 contenido — igual que Astro */
+  grid-template-columns: 4fr 3fr;
   background-color: #ffffff;
-  border: 1px solid var(--color-border);
+  border: 1px solid #e2e8f0;
   overflow: hidden;
 }
 
@@ -255,7 +242,6 @@
   margin-top: 0.25rem;
 }
 
-/* ── Mobile stacked cards ── */
 .portfolio-mobile {
   display: flex;
   flex-direction: column;
@@ -270,7 +256,7 @@
 
 .portfolio-mobile__card {
   background-color: #ffffff;
-  border: 1px solid var(--color-border);
+  border: 1px solid #e2e8f0;
   overflow: hidden;
 }
 
@@ -321,7 +307,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #e2e8f0;
   padding-top: 1rem;
 }
 

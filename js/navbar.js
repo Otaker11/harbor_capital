@@ -1,7 +1,3 @@
-/* ============================================================
-   navbar.js
-   ============================================================ */
-
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
   const toggle = document.getElementById("menu-toggle");
@@ -9,14 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.getElementById("mobile-menu");
   const mobileLinks = mobileMenu.querySelectorAll(".mobile-nav-link");
 
-  /* ── Scroll blocker (wheel + touch) ── */
   const blockScroll = (e) => e.preventDefault();
 
   function getScrollbarWidth() {
     return window.innerWidth - document.documentElement.clientWidth;
   }
 
-  /* ── Scrolled class ── */
   window.addEventListener(
     "scroll",
     () => {
@@ -25,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true },
   );
 
-  /* ── Open menu ── */
   function openMenu() {
     const sbWidth = getScrollbarWidth();
     document.documentElement.style.setProperty(
@@ -43,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("touchmove", blockScroll, { passive: false });
   }
 
-  /* ── Close menu ── */
   function closeMenu() {
     mobileMenu.classList.remove("open");
     mobileMenu.setAttribute("aria-hidden", "true");
@@ -59,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle.addEventListener("click", openMenu);
   closeBtn.addEventListener("click", closeMenu);
 
-  /* ── Mobile links: close then smooth scroll ── */
   mobileLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
@@ -77,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ── Desktop links: smooth scroll ── */
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
@@ -90,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ── Active link highlight via IntersectionObserver ── */
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 

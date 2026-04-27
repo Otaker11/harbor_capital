@@ -1,8 +1,7 @@
 #contact {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #e2e8f0;
 }
 
-/* ── Desktop ── */
 .footer-desktop {
   display: none;
 }
@@ -17,17 +16,14 @@
 
 .footer-desktop__grid {
   display: grid;
-  grid-template-columns: repeat(
-    4,
-    1fr
-  ); /* en Astro es 4 columnas iguales, no 1.5fr */
+  grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;
   margin-bottom: 3rem;
 }
 
 @media (min-width: 1024px) {
   .footer-desktop__grid {
-    gap: 4rem; /* equivale a gap-10 en lg */
+    gap: 4rem;
   }
 }
 
@@ -37,7 +33,7 @@
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.8125rem;
-  letter-spacing: 0.14em; /* tracking-[0.14em] exacto del Astro */
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 1rem;
@@ -47,16 +43,15 @@
 .footer-brand__desc {
   font-family: var(--font-body);
   font-size: 0.8125rem;
-  font-weight: 600; /* font-semibold en Astro */
+  font-weight: 600;
   color: var(--color-primary);
   line-height: 1.6;
 }
 
-/* Link columns */
 .footer-col__heading {
-  font-family: var(--font-display); /* font-display en Astro, no font-body */
-  font-weight: 700; /* font-bold en Astro */
-  font-size: 0.8125rem; /* text-[13px] en md */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8125rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-primary);
@@ -69,13 +64,12 @@
   gap: 0.75rem;
 }
 
-/* En Astro los links del footer son color-primary + semibold, no slate-dark */
 .footer-col__list li,
 .footer-col__list a {
   font-family: var(--font-body);
   font-size: 0.8125rem;
-  font-weight: 600; /* font-semibold — diferencia clave */
-  color: var(--color-primary); /* text-primary, no slate-dark */
+  font-weight: 600;
+  color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -84,12 +78,11 @@
   color: var(--color-tertiary);
 }
 
-/* Botón Investor Portal — en Astro es bg-navy con hover gold, no btn genérico */
 .btn-navy {
   display: inline-block;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.6875rem; /* text-[11px] */
+  font-size: 0.6875rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   background-color: var(--color-navy);
@@ -114,7 +107,6 @@
   flex-wrap: wrap;
 }
 
-/* En Astro el copy y links son color-primary + semibold, no secondary */
 .footer-bottom__copy {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -141,7 +133,6 @@
   color: var(--color-tertiary);
 }
 
-/* ── Mobile ── */
 .footer-mobile {
   display: flex;
   flex-direction: column;
@@ -156,7 +147,6 @@
   }
 }
 
-/* Logo mobile — font-display en Astro, tracking diferente */
 .footer-mobile .footer-brand__logo {
   font-family: var(--font-display);
   font-size: 0.875rem;
@@ -176,7 +166,7 @@
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-primary); /* text-primary en Astro, no slate-dark */
+  color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }

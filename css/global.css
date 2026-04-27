@@ -1,0 +1,240 @@
+/* ============================================================
+   HARBOR CAPITAL PARTNERS — global.css
+   ============================================================ */
+
+/* ── Google Fonts (non-blocking via JS, fallback here for direct CSS load) ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+  /* Colors */
+  --color-primary:      #0F172A;
+  --color-secondary:    #94A3B8;
+  --color-tertiary:     #B59A5D;
+  --color-tertiary-lt:  #D4B97A;
+  --color-neutral:      #F8FAFC;
+  --color-slate-dark:   #64748B;
+  --color-border:       #E2E8F0;
+  --color-white:        #FFFFFF;
+
+  /* Typography */
+  --font-display: 'Noto Serif', Georgia, serif;
+  --font-body:    'Public Sans', system-ui, -apple-system, sans-serif;
+
+  /* Letter spacing */
+  --tracking-wide:    0.08em;
+  --tracking-wider:   0.12em;
+  --tracking-widest:  0.15em;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Horizontal page padding (fluid) */
+  --px: clamp(1.25rem, 5vw, 5rem);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-primary);
+  background-color: var(--color-neutral);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scroll lock when mobile menu is open (set by navbar.js) */
+body.menu-open {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width, 0px);
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+
+/* ── Section padding ── */
+.section-pad {
+  padding-top:    clamp(3.5rem, 7vw, 7rem);
+  padding-bottom: clamp(3.5rem, 7vw, 7rem);
+}
+
+/* ── Typography reusables ── */
+
+/* Small gold uppercase label (eyebrow) */
+.label-gold {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-tertiary);
+}
+
+/* Section heading (Noto Serif) */
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.1;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+/* Gold horizontal rule under headings */
+.gold-rule {
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--color-tertiary);
+  margin-top: 1rem;
+}
+
+/* Body text / paragraph */
+.body-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.8125rem, 1.5vw, 0.9375rem);
+  line-height: 1.75;
+  color: var(--color-slate-dark);
+}
+
+/* Small uppercase nav/label text */
+.label-nav {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ── Buttons ── */
+
+/* Ghost: white border, transparent bg — used on dark backgrounds */
+.btn-ghost {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  padding: 1rem 2rem;
+  transition: background-color 0.3s var(--ease-out),
+              color           0.3s var(--ease-out);
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+/* Navy solid — used on light backgrounds (footer investor login) */
+.btn-navy {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.875rem 1.5rem;
+  transition: background-color 0.3s var(--ease-out),
+              color           0.3s var(--ease-out);
+  cursor: pointer;
+}
+.btn-navy:hover {
+  background-color: var(--color-tertiary);
+  border-color: var(--color-tertiary);
+}
+
+/* Ghost navy — border navy, used on light backgrounds */
+.btn-ghost-navy {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 1rem 1.5rem;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s var(--ease-out),
+              color           0.3s var(--ease-out);
+  cursor: pointer;
+}
+.btn-ghost-navy:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ── Arrow icon SVG helper ── */
+.icon-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: color 0.25s ease;
+}
+.icon-arrow:hover { color: var(--color-tertiary); }
+.icon-arrow svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* ── Utility: visually hidden (a11y) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}

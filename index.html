@@ -274,90 +274,74 @@
     </section>
 
     <!-- ══════════════════════════════════════════
-       PORTFOLIO
-  ══════════════════════════════════════════ -->
-    <section id="portfolio" class="section-pad bg-neutral">
+     PORTFOLIO
+══════════════════════════════════════════ -->
+    <section id="portfolio">
       <div class="container">
         <!-- Header -->
-        <div class="portfolio__header" data-aos="fade-up">
+        <div class="portfolio__header">
           <p class="label-gold">Investment Portfolio</p>
           <h2 class="section-heading">Strategic Asset Holdings</h2>
           <div class="gold-rule"></div>
         </div>
 
-        <!-- Desktop / Tablet grid -->
         <div class="portfolio-grid">
-          <!-- Card: The Azure, Miami (large) -->
-          <div
-            class="portfolio-card portfolio-card--large"
-            data-aos="fade-up"
-            data-aos-delay="0"
-          >
-            <div class="portfolio-card__img-wrap">
-              <img
-                src="img/portfolio/portfolio1.webp"
-                alt="The Azure, Miami"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 66vw"
-              />
-            </div>
-            <div class="portfolio-card__info">
-              <div class="portfolio-card__meta">
-                <div>
-                  <p class="portfolio-card__name">The Azure, Miami</p>
-                  <p class="portfolio-card__location">
-                    Class-A Multifamily | Wynwood District
-                  </p>
+          <div class="portfolio-grid__row1">
+            <div class="portfolio-card portfolio-card--large">
+              <div class="portfolio-card__img-wrap">
+                <img
+                  src="img/portfolio/portfolio1.webp"
+                  alt="The Azure, Miami"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-card__info">
+                <div class="portfolio-card__meta">
+                  <div>
+                    <p class="portfolio-card__name">The Azure, Miami</p>
+                    <p class="portfolio-card__location">
+                      Class-A Multifamily | Wynwood District
+                    </p>
+                  </div>
+                  <div class="portfolio-card__right">
+                    <span class="portfolio-card__badge">Acquired 2022</span>
+                  </div>
                 </div>
-                <div class="portfolio-card__right">
-                  <span class="portfolio-card__badge">Acquired 2022</span>
-                  <a href="#contact" class="icon-arrow" aria-label="Learn more">
-                    <svg viewBox="0 0 24 24">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </a>
+              </div>
+            </div>
+
+            <!-- Small card -->
+            <div class="portfolio-card portfolio-card--small">
+              <div class="portfolio-card__img-wrap">
+                <img
+                  src="img/portfolio/portfolio2.webp"
+                  alt="Oaks at Buckhead, Atlanta"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-card__info">
+                <div class="portfolio-card__meta">
+                  <div>
+                    <p class="portfolio-card__name">
+                      Oaks at Buckhead, Atlanta
+                    </p>
+                    <p class="portfolio-card__location">
+                      Garden-Style Value Add
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- /row1 -->
 
-          <!-- Card: Oaks at Buckhead (small) -->
-          <div
-            class="portfolio-card portfolio-card--small"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div class="portfolio-card__img-wrap">
-              <img
-                src="img/portfolio/portfolio2.webp"
-                alt="Oaks at Buckhead, Atlanta"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-            <div class="portfolio-card__info">
-              <div class="portfolio-card__meta">
-                <div>
-                  <p class="portfolio-card__name">Oaks at Buckhead, Atlanta</p>
-                  <p class="portfolio-card__location">Garden-Style Value Add</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card: Harbor Heights (featured horizontal) -->
-          <div
-            class="portfolio-card portfolio-card--featured"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
+          <!-- Row 2: featured -->
+          <div class="portfolio-card portfolio-card--featured">
             <div class="portfolio-card__img-wrap">
               <img
                 src="img/portfolio/portfolio3.webp"
                 alt="Harbor Heights, Charlotte"
                 loading="lazy"
-                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div class="portfolio-card__featured-content">
@@ -383,14 +367,11 @@
             </div>
           </div>
         </div>
+        <!-- /portfolio-grid -->
 
-        <!-- Mobile cards (shown only on mobile via CSS) -->
+        <!-- Mobile cards -->
         <div class="portfolio-mobile">
-          <div
-            class="portfolio-mobile__card"
-            data-aos="fade-up"
-            data-aos-delay="0"
-          >
+          <div class="portfolio-mobile__card">
             <div class="portfolio-mobile__img">
               <img
                 src="img/portfolio/portfolio1.webp"
@@ -413,11 +394,7 @@
             </div>
           </div>
 
-          <div
-            class="portfolio-mobile__card"
-            data-aos="fade-up"
-            data-aos-delay="80"
-          >
+          <div class="portfolio-mobile__card">
             <div class="portfolio-mobile__img">
               <img
                 src="img/portfolio/portfolio2.webp"
@@ -440,11 +417,7 @@
             </div>
           </div>
 
-          <div
-            class="portfolio-mobile__card"
-            data-aos="fade-up"
-            data-aos-delay="160"
-          >
+          <div class="portfolio-mobile__card">
             <div class="portfolio-mobile__img">
               <img
                 src="img/portfolio/portfolio3.webp"
@@ -455,8 +428,15 @@
             <div class="portfolio-mobile__body">
               <p class="label-gold">Mixed Use</p>
               <p class="portfolio-mobile__name">Harbor Heights, Charlotte</p>
+              <p class="portfolio-mobile__desc">
+                A vertically integrated mixed-use development anchored by
+                institutional-grade multifamily units in the heart of
+                Charlotte's growth corridor.
+              </p>
               <div class="portfolio-mobile__footer">
-                <span class="portfolio-mobile__stat">Value-Add</span>
+                <span class="portfolio-mobile__stat"
+                  >482 Units · 96.4% Occ.</span
+                >
                 <a href="#contact" class="icon-arrow" aria-label="Learn more">
                   <svg viewBox="0 0 24 24">
                     <line x1="5" y1="12" x2="19" y2="12" />
@@ -467,6 +447,7 @@
             </div>
           </div>
         </div>
+        <!-- /portfolio-mobile -->
       </div>
     </section>
 

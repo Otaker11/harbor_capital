@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const section = document.getElementById("counter-section");
   if (!section) return;
 
-  /* ── Fade-up stagger con fromTo para garantizar estado inicial ── */
   gsap.fromTo(
     ".counter-item",
     { opacity: 0, y: 24 },
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   );
 
-  /* ── Numeric counters ── */
   const counters = document.querySelectorAll(".counter");
 
   counters.forEach((counter) => {

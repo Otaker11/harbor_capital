@@ -1,71 +1,46 @@
 /* ============================================================
-   portfolio.css
+   PORTFOLIO
    ============================================================ */
 
 /* ── Header ── */
 .portfolio__header {
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  margin-bottom: 3rem;
 }
 
-/* ── Grid desktop ── */
+@media (min-width: 768px) {
+  .portfolio__header {
+    margin-bottom: 4rem;
+  }
+}
+
+.portfolio__header .label-gold {
+  margin-bottom: 0.75rem;
+}
+
+/* ── Desktop / tablet grid ── */
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1rem;
+  display: none;
 }
 
-/* Card grande ocupa columna 1, filas 1-2 */
-.portfolio-card--large {
-  grid-column: 1;
-  grid-row: 1;
+@media (min-width: 768px) {
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    grid-template-rows: auto auto;
+  }
 }
 
-/* Card pequeña columna 2, fila 1 */
-.portfolio-card--small {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-/* Featured ocupa columna 1-2, fila 2 */
-.portfolio-card--featured {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-/* ── Base card ── */
+/* Shared card styles */
 .portfolio-card {
+  background-color: #ffffff;
   overflow: hidden;
-  background: var(--color-white);
-  position: relative;
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
 }
 
-.portfolio-card:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-}
-
-/* ── Imagen wrap ── */
 .portfolio-card__img-wrap {
   overflow: hidden;
-  height: 340px;
-  background: var(--color-navy-mid);
-}
-
-.portfolio-card--small .portfolio-card__img-wrap {
-  height: 340px;
-}
-
-.portfolio-card--featured .portfolio-card__img-wrap {
-  height: 100%;
-  min-height: 300px;
 }
 
 .portfolio-card__img-wrap img {
@@ -76,124 +51,174 @@
 }
 
 .portfolio-card:hover .portfolio-card__img-wrap img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
-/* ── Info bar (cards normales) ── */
+/* Large card: spans 2 columns, row 1 */
+.portfolio-card--large {
+  grid-column: span 2;
+}
+
+.portfolio-card--large .portfolio-card__img-wrap {
+  height: 18rem;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card--large .portfolio-card__img-wrap {
+    height: 22rem;
+  }
+}
+
+/* Small card: 1 column, row 1 */
+.portfolio-card--small {
+  grid-column: span 1;
+}
+
+.portfolio-card--small .portfolio-card__img-wrap {
+  height: 18rem;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card--small .portfolio-card__img-wrap {
+    height: 22rem;
+  }
+}
+
+/* Info bar (large + small cards) */
 .portfolio-card__info {
-  padding: 1.25rem 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 1.25rem;
+  border-top: none;
 }
 
 .portfolio-card__meta {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
 }
 
 .portfolio-card__name {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-family: var(--font-display);
   font-weight: 600;
-  color: var(--color-navy);
-  margin-bottom: 0.2rem;
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card__name {
+    font-size: 1.25rem;
+  }
 }
 
 .portfolio-card__location {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-secondary);
 }
 
 .portfolio-card__right {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.75rem;
   flex-shrink: 0;
 }
 
 .portfolio-card__badge {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-gold);
-  background: rgba(184, 151, 90, 0.1);
-  padding: 0.3rem 0.75rem;
+  color: var(--color-secondary);
   white-space: nowrap;
 }
 
-/* ── Featured content ── */
+/* Featured card: full 3 columns, row 2, image left + content right */
+.portfolio-card--featured {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.portfolio-card--featured .portfolio-card__img-wrap {
+  height: 100%;
+  min-height: 18rem;
+}
+
 .portfolio-card__featured-content {
-  padding: clamp(2rem, 4vw, 3.5rem);
+  padding: 2.5rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
-  background: var(--color-white);
+}
+
+.portfolio-card__featured-content .label-gold {
+  margin-bottom: 0.75rem;
 }
 
 .portfolio-card__featured-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-family: var(--font-display);
   font-weight: 600;
-  color: var(--color-navy);
-  line-height: 1.2;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-primary);
+  line-height: 1.15;
+  margin-bottom: 1rem;
 }
 
 .portfolio-card__featured-desc {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  max-width: 42ch;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-slate-dark);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 34rem;
 }
 
 .portfolio-card__stats {
   display: flex;
   gap: 2.5rem;
-  margin-top: 0.5rem;
 }
 
 .portfolio-card__stat-value {
-  font-family: var(--font-serif);
-  font-size: 2rem;
+  font-family: var(--font-display);
   font-weight: 600;
-  color: var(--color-navy);
-  line-height: 1.1;
+  font-size: 1.25rem;
+  color: var(--color-primary);
 }
 
 .portfolio-card__stat-label {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.04em;
-  margin-top: 0.15rem;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-top: 0.25rem;
 }
 
-/* ── Mobile cards (ocultas en desktop) ── */
+/* ── Mobile stacked cards ── */
 .portfolio-mobile {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .portfolio-mobile {
+    display: none;
+  }
 }
 
 .portfolio-mobile__card {
-  display: flex;
-  gap: 1rem;
-  padding-block: 1.25rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
 }
 
 .portfolio-mobile__img {
-  width: 90px;
-  height: 70px;
-  flex-shrink: 0;
+  height: 13rem;
   overflow: hidden;
-  background: var(--color-navy-mid);
 }
+
 .portfolio-mobile__img img {
   width: 100%;
   height: 100%;
@@ -201,43 +226,35 @@
 }
 
 .portfolio-mobile__body {
-  flex: 1;
-  min-width: 0;
+  padding: 1.25rem;
+}
+
+.portfolio-mobile__body .label-gold {
+  margin-bottom: 0.5rem;
 }
 
 .portfolio-mobile__name {
-  font-family: var(--font-serif);
-  font-size: 1rem;
+  font-family: var(--font-display);
   font-weight: 600;
-  color: var(--color-navy);
-  margin-block: 0.15rem 0.4rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  line-height: 1.3;
+  margin-bottom: 1rem;
 }
 
 .portfolio-mobile__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
 }
 
 .portfolio-mobile__stat {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .portfolio-grid {
-    display: none;
-  }
-  .portfolio-mobile {
-    display: block;
-  }
+  color: var(--color-slate-dark);
 }

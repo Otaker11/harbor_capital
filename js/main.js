@@ -1,18 +1,11 @@
-/* ============================================================
-   main.js — Init AOS + Lenis smooth scroll
-   ============================================================ */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* ── AOS ── */
+document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
     once: true,
     duration: 700,
-    easing: 'ease-out',
+    easing: "ease-out",
     offset: 80,
   });
 
-  /* ── Lenis smooth scroll ── */
   const lenis = new Lenis({
     lerp: 0.08,
     smoothWheel: true,
@@ -24,6 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   requestAnimationFrame(raf);
 
-  /* Expose lenis globally so other scripts can use it */
   window.lenisInstance = lenis;
 });

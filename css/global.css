@@ -1,24 +1,35 @@
-/* ============================================================
-   global.css — Variables, reset, tipografía y utilidades
-   ============================================================ */
-
-/* ── Custom properties ── */
 :root {
-  --color-navy: #0b1f3a;
+  /* ── Colores Astro-exactos ── */
+  --color-primary: #0f172a;
+  --color-secondary: #94a3b8;
+  --color-tertiary: #b59a5d;
+  --color-neutral: #f8fafc;
+
+  /* aliases para compatibilidad con el resto del sitio */
+  --color-navy: #0f172a;
   --color-navy-dark: #071429;
-  --color-navy-mid: #122544;
-  --color-gold: #b8975a;
-  --color-gold-light: #d4b07a;
+  --color-navy-mid: #1e2d45;
+  --color-gold: #b59a5d;
+  --color-gold-light: #d4b97a;
   --color-white: #ffffff;
   --color-off-white: #f5f3ef;
-  --color-neutral: #f0ede8;
   --color-text: #1a1a1a;
-  --color-text-muted: #6b6b6b;
-  --color-border: rgba(184, 151, 90, 0.25);
+  --color-text-muted: #64748b;
+  --color-border: rgba(181, 154, 93, 0.25);
 
+  /* ── Tipografía ── */
+  --font-display: "Noto Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", system-ui, -apple-system, sans-serif;
+  /* aliases */
   --font-serif: "Noto Serif", Georgia, serif;
   --font-sans: "Public Sans", system-ui, sans-serif;
 
+  /* ── Tracking ── */
+  --tracking-wide: 0.08em;
+  --tracking-widest: 0.15em;
+
+  /* ── Layout ── */
+  --px: 5vw;
   --container-max: 1280px;
   --container-pad: clamp(1.25rem, 5vw, 4rem);
   --section-pad: clamp(4rem, 8vw, 8rem);
@@ -43,18 +54,18 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-white);
+  color: var(--color-primary);
+  background-color: var(--color-neutral);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 body.menu-open {
   overflow: hidden;
-  padding-right: var(--scrollbar-width);
+  padding-right: var(--scrollbar-width, 0px);
 }
 
 img,
@@ -101,16 +112,16 @@ button {
 
 /* ── Tipografía ── */
 .section-heading {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(1.9rem, 3.5vw, 2.75rem);
   font-weight: 600;
   line-height: 1.2;
-  color: var(--color-navy);
+  color: var(--color-primary);
   letter-spacing: -0.01em;
 }
 
 .label-gold {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -119,7 +130,7 @@ button {
 }
 
 .body-text {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.75;
   color: var(--color-text-muted);
@@ -138,7 +149,7 @@ button {
   padding: 0.75rem 2rem;
   border: 1px solid rgba(255, 255, 255, 0.55);
   color: var(--color-white);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -155,9 +166,9 @@ button {
 .btn-ghost-navy {
   display: inline-block;
   padding: 0.75rem 2rem;
-  border: 1px solid var(--color-navy);
-  color: var(--color-navy);
-  font-family: var(--font-sans);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -167,16 +178,16 @@ button {
     color 0.25s;
 }
 .btn-ghost-navy:hover {
-  background: var(--color-navy);
+  background: var(--color-primary);
   color: var(--color-white);
 }
 
 .btn-navy {
   display: inline-block;
   padding: 0.75rem 1.75rem;
-  background: var(--color-navy);
+  background: var(--color-primary);
   color: var(--color-white);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.12em;

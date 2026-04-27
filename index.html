@@ -71,7 +71,7 @@
        NAVBAR
   ══════════════════════════════════════════ -->
     <header id="navbar">
-      <div class="navbar__inner container">
+      <div class="navbar__inner">
         <a href="/" class="navbar__logo">Harbor Capital Partners</a>
 
         <nav class="navbar__links" aria-label="Main navigation">
@@ -95,7 +95,6 @@
       </div>
     </header>
 
-    <!-- Mobile menu overlay (outside header to avoid stacking context issues) -->
     <div id="mobile-menu" aria-hidden="true">
       <button id="menu-close" aria-label="Close menu">
         <svg
@@ -113,7 +112,7 @@
 
       <a href="/" class="mobile-menu__logo">Harbor Capital Partners</a>
 
-      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+      <nav class="mobile-menu__nav">
         <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
         <a href="#hero" class="mobile-nav-link">Strategy</a>
         <a href="#leadership" class="mobile-nav-link">Leadership</a>
@@ -500,11 +499,7 @@
             </p>
             <!-- Leader -->
             <div class="about__leader">
-              <img
-                src="img/leader.webp"
-                alt="Marcus Thorne"
-                class="about__avatar"
-              />
+              <img src="img/leader.webp" alt="leader" class="about__avatar" />
               <div>
                 <p class="about__leader-name">Marcus Thorne</p>
                 <p class="label-gold">Managing Partner &amp; Founder</p>

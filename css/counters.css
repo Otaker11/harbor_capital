@@ -1,0 +1,78 @@
+/* ============================================================
+   counters.css
+   ============================================================ */
+
+#counter-section {
+  background-color: var(--color-navy);
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.counters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+/* Separadores verticales entre items */
+.counter-item + .counter-item {
+  border-left: 1px solid rgba(184, 151, 90, 0.2);
+}
+
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  gap: 0.4rem;
+}
+
+.counter-item__label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.25rem;
+}
+
+.counter-item__value {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.counter-item__sub {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .counters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Borramos el border-left del tercero (primer item de 2a fila) */
+  .counter-item:nth-child(3) {
+    border-left: none;
+    border-top: 1px solid rgba(184, 151, 90, 0.2);
+  }
+  .counter-item:nth-child(4) {
+    border-top: 1px solid rgba(184, 151, 90, 0.2);
+  }
+}
+
+@media (max-width: 480px) {
+  .counters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .counter-item {
+    padding: 1.5rem 1rem;
+  }
+}

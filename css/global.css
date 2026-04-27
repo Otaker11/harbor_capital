@@ -1,240 +1,222 @@
 /* ============================================================
-   HARBOR CAPITAL PARTNERS — global.css
+   global.css — Variables, reset, tipografía y utilidades
    ============================================================ */
 
-/* ── Google Fonts (non-blocking via JS, fallback here for direct CSS load) ── */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600;700&display=swap');
-
-/* ── Design Tokens ── */
+/* ── Custom properties ── */
 :root {
-  /* Colors */
-  --color-primary:      #0F172A;
-  --color-secondary:    #94A3B8;
-  --color-tertiary:     #B59A5D;
-  --color-tertiary-lt:  #D4B97A;
-  --color-neutral:      #F8FAFC;
-  --color-slate-dark:   #64748B;
-  --color-border:       #E2E8F0;
-  --color-white:        #FFFFFF;
+  --color-navy: #0b1f3a;
+  --color-navy-dark: #071429;
+  --color-navy-mid: #122544;
+  --color-gold: #b8975a;
+  --color-gold-light: #d4b07a;
+  --color-white: #ffffff;
+  --color-off-white: #f5f3ef;
+  --color-neutral: #f0ede8;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b6b6b;
+  --color-border: rgba(184, 151, 90, 0.25);
 
-  /* Typography */
-  --font-display: 'Noto Serif', Georgia, serif;
-  --font-body:    'Public Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: "Noto Serif", Georgia, serif;
+  --font-sans: "Public Sans", system-ui, sans-serif;
 
-  /* Letter spacing */
-  --tracking-wide:    0.08em;
-  --tracking-wider:   0.12em;
-  --tracking-widest:  0.15em;
+  --container-max: 1280px;
+  --container-pad: clamp(1.25rem, 5vw, 4rem);
+  --section-pad: clamp(4rem, 8vw, 8rem);
+  --navbar-h: 72px;
+  --scrollbar-width: 0px;
 
-  /* Transitions */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-  /* Horizontal page padding (fluid) */
-  --px: clamp(1.25rem, 5vw, 5rem);
 }
 
 /* ── Reset ── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--color-primary);
-  background-color: var(--color-neutral);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-text);
+  background-color: var(--color-white);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Scroll lock when mobile menu is open (set by navbar.js) */
 body.menu-open {
   overflow: hidden;
-  padding-right: var(--scrollbar-width, 0px);
+  padding-right: var(--scrollbar-width);
 }
 
-img, video {
+img,
+video {
   display: block;
   max-width: 100%;
-  height: auto;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
-button {
-  font-family: inherit;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
 
-/* ── Container ── */
+/* ── Contenedor ── */
 .container {
   width: 100%;
-  padding-left: var(--px);
-  padding-right: var(--px);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
 }
 
-/* ── Section padding ── */
+/* ── Sección ── */
 .section-pad {
-  padding-top:    clamp(3.5rem, 7vw, 7rem);
-  padding-bottom: clamp(3.5rem, 7vw, 7rem);
+  padding-block: var(--section-pad);
+}
+.bg-white {
+  background-color: var(--color-white);
+}
+.bg-neutral {
+  background-color: var(--color-neutral);
+}
+.bg-navy {
+  background-color: var(--color-navy);
 }
 
-/* ── Typography reusables ── */
-
-/* Small gold uppercase label (eyebrow) */
-.label-gold {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.6875rem;
-  letter-spacing: var(--tracking-widest);
-  text-transform: uppercase;
-  color: var(--color-tertiary);
-}
-
-/* Section heading (Noto Serif) */
+/* ── Tipografía ── */
 .section-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
   font-weight: 600;
-  color: var(--color-primary);
-  line-height: 1.1;
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.2;
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
 }
 
-/* Gold horizontal rule under headings */
-.gold-rule {
-  width: 2.5rem;
-  height: 2px;
-  background-color: var(--color-tertiary);
-  margin-top: 1rem;
-}
-
-/* Body text / paragraph */
-.body-text {
-  font-family: var(--font-body);
-  font-size: clamp(0.8125rem, 1.5vw, 0.9375rem);
-  line-height: 1.75;
-  color: var(--color-slate-dark);
-}
-
-/* Small uppercase nav/label text */
-.label-nav {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.75rem;
-  letter-spacing: var(--tracking-wide);
+.label-gold {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: var(--color-gold);
 }
 
-/* ── Buttons ── */
+.body-text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
 
-/* Ghost: white border, transparent bg — used on dark backgrounds */
+.gold-rule {
+  width: 3rem;
+  height: 1px;
+  background: var(--color-gold);
+  margin-top: 1.25rem;
+}
+
+/* ── Botones ── */
 .btn-ghost {
   display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
   color: var(--color-white);
-  border: 1px solid var(--color-white);
-  padding: 1rem 2rem;
-  transition: background-color 0.3s var(--ease-out),
-              color           0.3s var(--ease-out);
-  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background 0.25s var(--ease-out),
+    border-color 0.25s;
 }
 .btn-ghost:hover {
-  background-color: var(--color-white);
-  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-white);
 }
 
-/* Navy solid — used on light backgrounds (footer investor login) */
-.btn-navy {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.6875rem;
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-  padding: 0.875rem 1.5rem;
-  transition: background-color 0.3s var(--ease-out),
-              color           0.3s var(--ease-out);
-  cursor: pointer;
-}
-.btn-navy:hover {
-  background-color: var(--color-tertiary);
-  border-color: var(--color-tertiary);
-}
-
-/* Ghost navy — border navy, used on light backgrounds */
 .btn-ghost-navy {
   display: inline-block;
-  font-family: var(--font-body);
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--color-navy);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
   font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-  padding: 1rem 1.5rem;
-  width: 100%;
-  text-align: center;
-  transition: background-color 0.3s var(--ease-out),
-              color           0.3s var(--ease-out);
-  cursor: pointer;
+  transition:
+    background 0.25s var(--ease-out),
+    color 0.25s;
 }
 .btn-ghost-navy:hover {
-  background-color: var(--color-primary);
+  background: var(--color-navy);
   color: var(--color-white);
 }
 
-/* ── Arrow icon SVG helper ── */
+.btn-navy {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.25s var(--ease-out);
+}
+.btn-navy:hover {
+  background: var(--color-navy-dark);
+}
+
+/* ── Flecha icono ── */
 .icon-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
-  transition: color 0.25s ease;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-gold);
+  flex-shrink: 0;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
-.icon-arrow:hover { color: var(--color-tertiary); }
 .icon-arrow svg {
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 1rem;
+  height: 1rem;
   stroke: currentColor;
   fill: none;
   stroke-width: 1.5;
 }
+.icon-arrow:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-white);
+}
 
-/* ── Utility: visually hidden (a11y) ── */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
+/* ── Accesibilidad ── */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
 }

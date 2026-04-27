@@ -1,54 +1,59 @@
-/* ============================================================
-   counters.js — Animación de números con IntersectionObserver
-   ============================================================ */
-
 document.addEventListener("DOMContentLoaded", () => {
-  const DURATION = 2000; // ms que tarda la animación
-
-  /* Función de easing (ease-out-quad) */
-  function easeOutQuad(t) {
-    return t * (2 - t);
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+    console.warn("counters.js: GSAP or ScrollTrigger not loaded.");
+    return;
   }
 
-  /* Anima un único elemento counter */
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.count, 10);
-    const suffix = el.dataset.suffix || "";
-    const start = performance.now();
+  gsap.registerPlugin(ScrollTrigger);
 
-    function step(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / DURATION, 1);
-      const eased = easeOutQuad(progress);
-      const current = Math.round(eased * target);
+  const section = document.getElementById("counter-section");
+  if (!section) return;
 
-      el.textContent = current.toLocaleString("en-US") + suffix;
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = target.toLocaleString("en-US") + suffix;
-      }
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  /* Solo anima los elementos que tengan data-count */
-  const counterEls = document.querySelectorAll("[data-count]");
-  if (!counterEls.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target); // anima solo una vez
-        }
-      });
+  /* ── Fade-up stagger con fromTo para garantizar estado inicial ── */
+  gsap.fromTo(
+    ".counter-item",
+    { opacity: 0, y: 24 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      stagger: 0.12,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#counter-section",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
     },
-    { threshold: 0.5 },
   );
 
-  counterEls.forEach((el) => observer.observe(el));
+  /* ── Numeric counters ── */
+  const counters = document.querySelectorAll(".counter");
+
+  counters.forEach((counter) => {
+    const target = parseFloat(counter.getAttribute("data-target") ?? "0");
+    const suffix = counter.getAttribute("data-suffix") ?? "";
+    if (isNaN(target)) return;
+
+    const obj = { val: 0 };
+
+    gsap.to(obj, {
+      val: target,
+      duration: 2.5,
+      ease: "power2.out",
+      snap: { val: 1 },
+      scrollTrigger: {
+        trigger: "#counter-section",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      onUpdate() {
+        counter.textContent =
+          Math.round(obj.val).toLocaleString("en-US") + suffix;
+      },
+      onComplete() {
+        counter.textContent = target.toLocaleString("en-US") + suffix;
+      },
+    });
+  });
 });

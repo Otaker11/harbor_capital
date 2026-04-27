@@ -242,28 +242,30 @@
        COUNTERS
   ══════════════════════════════════════════ -->
     <section id="counter-section">
-      <div class="counters container">
-        <div class="counter-item" data-aos="fade-up" data-aos-delay="0">
+      <div class="counters">
+        <div class="counter-item">
           <span class="counter-item__label">Capital Deployment</span>
-          <span class="counter-item__value">$300M+</span>
+          <span class="counter-item__value">
+            $<span class="counter" data-target="300" data-suffix="M+">0</span>
+          </span>
           <span class="counter-item__sub">Assets Under Management</span>
         </div>
 
-        <div class="counter-item" data-aos="fade-up" data-aos-delay="80">
+        <div class="counter-item">
           <span class="counter-item__label">Portfolio Scale</span>
-          <span class="counter-item__value" data-count="3500" data-suffix="+"
-            >0+</span
-          >
+          <span class="counter-item__value">
+            <span class="counter" data-target="3500" data-suffix="+">0</span>
+          </span>
           <span class="counter-item__sub">Residential Units</span>
         </div>
 
-        <div class="counter-item" data-aos="fade-up" data-aos-delay="160">
+        <div class="counter-item">
           <span class="counter-item__label">Target Yield</span>
           <span class="counter-item__value">18-22%</span>
           <span class="counter-item__sub">Target IRR</span>
         </div>
 
-        <div class="counter-item" data-aos="fade-up" data-aos-delay="240">
+        <div class="counter-item">
           <span class="counter-item__label">Geographic Focus</span>
           <span class="counter-item__value">Core SE</span>
           <span class="counter-item__sub">Southeast Markets</span>
@@ -678,7 +680,8 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
       defer
     ></script>
-
+    <!-- ... otros scripts ... -->
+    <script src="js/counters.js" defer></script>
     <!-- Swiper -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
